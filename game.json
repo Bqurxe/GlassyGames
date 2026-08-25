@@ -1,1 +1,124 @@
-
+{
+  "games": [
+    {
+      "id": 1,
+      "title": "Ball Sort Puzzle",
+      "category": "puzzle",
+      "description": "Sort colored balls into matching tubes",
+      "emoji": "🔮",
+      "iframeUrl": "https://unblokedgames.github.io/projects/ball-sort-puzzle/index.html"
+    },
+    {
+      "id": 2,
+      "title": "Eaglercraft",
+      "category": "action",
+      "description": "Build and explore in this blocky sandbox world",
+      "emoji": "⛏️",
+      "iframeUrl": "https://unblokedgames.github.io/projects/eaglercraft/index.html"
+    },
+    {
+      "id": 3,
+      "title": "Drift Boss",
+      "category": "sports",
+      "description": "Master the art of drifting and earn high scores",
+      "emoji": "🏎️",
+      "iframeUrl": "https://unblokedgames.github.io/projects/drift-boss/index.html"
+    },
+    {
+      "id": 4,
+      "title": "Paper.io 2",
+      "category": "action",
+      "description": "Draw your territory and conquer other players",
+      "emoji": "📄",
+      "iframeUrl": "https://unblokedgames.github.io/projects/paperio2/index.html"
+    },
+    {
+      "id": 5,
+      "title": "Retro Bowl",
+      "category": "sports",
+      "description": "Classic football game with retro graphics",
+      "emoji": "🏈",
+      "iframeUrl": "https://unblokedgames.github.io/projects/retro-bowl/index.html"
+    },
+    {
+      "id": 6,
+      "title": "Slope",
+      "category": "action",
+      "description": "Roll down a slope avoiding obstacles",
+      "emoji": "⛷️",
+      "iframeUrl": "https://unblokedgames.github.io/projects/slope/index.html"
+    },
+    {
+      "id": 7,
+      "title": "Subway Surfers",
+      "category": "action",
+      "description": "Run and jump through subway tracks",
+      "emoji": "🚇",
+      "iframeUrl": "https://unblokedgames.github.io/projects/subway-surfers-unity/barcelona.html"
+    },
+    {
+      "id": 8,
+      "title": "Moto X3M",
+      "category": "sports",
+      "description": "Perform stunts on a motorcycle",
+      "emoji": "🏍️",
+      "iframeUrl": "https://unblokedgames.github.io/projects/moto-x3m/index.html"
+    },
+    {
+      "id": 9,
+      "title": "Vex 3",
+      "category": "action",
+      "description": "Navigate through challenging obstacle courses",
+      "emoji": "🎮",
+      "iframeUrl": "https://unblokedgames.github.io/projects/vex3/index.html"
+    },
+    {
+      "id": 10,
+      "title": "Stack",
+      "category": "strategy",
+      "description": "Stack as many blocks as you can before running out",
+      "emoji": "📚",
+      "iframeUrl": "https://unblokedgames.github.io/projects/stack/index.html"
+    },
+    {
+      "id": 11,
+      "title": "Jumping Shell",
+      "category": "sports",
+      "description": "Use the shell to jump",
+      "emoji": "🦘",
+      "iframeUrl": "https://jumpingshellgame.github.io/"
+    },
+    {
+      "id": 12,
+      "title": "Baldi's Basics",
+      "category": "puzzle",
+      "description": "Survive Baldi's schoolhouse by solving problems and finding notebooks",
+      "emoji": "📓",
+      "iframeUrl": "https://unblokedgames.github.io/projects/baldis-basics/index.html"
+    },
+    {
+      "id": 13,
+      "title": "Geometry Dash",
+      "category": "action",
+      "description": "Jump and fly through danger in this rhythm-based platformer",
+      "emoji": "🔺",
+      "iframeUrl": "https://unblokedgames.github.io/projects/geodash/index.html"
+    },
+    {
+      "id": 14,
+      "title": "Google Snake",
+      "category": "puzzle",
+      "description": "Classic snake game — eat, grow, and avoid crashing into yourself",
+      "emoji": "🐍",
+      "iframeUrl": "https://unblokedgames.github.io/projects/google-snake/index.html"
+    },
+    {
+      "id": 15,
+      "title": "Tomb of the Mask",
+      "category": "puzzle",
+      "description": "Navigate a maze, collect coins and avoid enemies",
+      "emoji": "🎭",
+      "iframeUrl": "https://unblokedgames.github.io/projects/totm/index.html"
+    }
+  ]
+}
