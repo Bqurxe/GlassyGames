@@ -12,7 +12,7 @@ const modalTitle = document.getElementById("modalTitle");
 const closeModalBtn = document.getElementById("closeModal");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
 const themeToggle = document.getElementById("themeToggle");
-const modalContent = document.querySelector(".modal-content");
+const modalContent = document.getElementById("modalContent");
 
 // ========== THEME ==========
 function applyTheme(theme) {
@@ -26,7 +26,6 @@ function applyTheme(theme) {
   localStorage.setItem("glassy-theme", theme);
 }
 
-// Load saved theme
 const savedTheme = localStorage.getItem("glassy-theme") || "dark";
 applyTheme(savedTheme);
 
@@ -37,7 +36,7 @@ themeToggle.addEventListener("click", () => {
 
 // ========== FAVORITES ==========
 function toggleFavorite(id, event) {
-  event.stopPropagation(); // prevent opening the game
+  event.stopPropagation();
 
   if (favorites.includes(id)) {
     favorites = favorites.filter(favId => favId !== id);
@@ -107,14 +106,11 @@ function renderGames() {
       <div class="game-category">${game.category}</div>
     `;
 
-    // Favorite button
     card.querySelector(".favorite-btn").addEventListener("click", (e) => {
       toggleFavorite(game.id, e);
     });
 
-    // Open game
     card.addEventListener("click", () => openGame(game));
-
     gamesGrid.appendChild(card);
   });
 }
@@ -128,14 +124,14 @@ function openGame(game) {
 }
 
 function closeGame() {
-  modal.classList.remove("active");
-  gameFrame.src = "";
-  document.body.style.overflow = "";
-
-  // Exit fullscreen if active
+  // Exit fullscreen first if active
   if (document.fullscreenElement) {
     document.exitFullscreen().catch(() => {});
   }
+
+  modal.classList.remove("active");
+  gameFrame.src = "";
+  document.body.style.overflow = "";
 }
 
 closeModalBtn.addEventListener("click", closeGame);
@@ -148,25 +144,45 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeGame();
 });
 
-// ========== FULLSCREEN ==========
-fullscreenBtn.addEventListener("click", () => {
-  if (!document.fullscreenElement) {
-    modalContent.requestFullscreen().catch(err => {
-      console.log("Fullscreen error:", err);
-    });
-  } else {
-    document.exitFullscreen();
+// ========== FULLSCREEN (FIXED) ==========
+fullscreenBtn.addEventListener("click", async () => {
+  try {
+    // If already in fullscreen → exit
+    if (document.fullscreenElement) {
+      await document.exitFullscreen();
+      return;
+    }
+
+    // Prefer fullscreen the actual game iframe
+    if (gameFrame.requestFullscreen) {
+      await gameFrame.requestFullscreen();
+    } else if (gameFrame.webkitRequestFullscreen) { // Safari
+      await gameFrame.webkitRequestFullscreen();
+    } else if (gameFrame.msRequestFullscreen) { // old Edge
+      await gameFrame.msRequestFullscreen();
+    } else {
+      // Fallback: fullscreen the whole modal
+      await modalContent.requestFullscreen();
+    }
+  } catch (err) {
+    console.warn("Fullscreen failed on iframe, trying modal instead...", err);
+    // Fallback if the game blocks fullscreen (very common with cross-origin games)
+    try {
+      await modalContent.requestFullscreen();
+    } catch (err2) {
+      alert("Fullscreen is blocked by this game. Try clicking the game first, then the button again.");
+    }
   }
 });
 
-// Update button icon when fullscreen changes
+// Update button when fullscreen state changes
 document.addEventListener("fullscreenchange", () => {
   if (document.fullscreenElement) {
-    fullscreenBtn.textContent = "⛶";
     fullscreenBtn.title = "Exit Fullscreen";
+    fullscreenBtn.style.background = "rgba(125, 211, 252, 0.25)";
   } else {
-    fullscreenBtn.textContent = "⛶";
-    fullscreenBtn.title = "Fullscreen";
+    fullscreenBtn.title = "Fullscreen Game";
+    fullscreenBtn.style.background = "";
   }
 });
 
