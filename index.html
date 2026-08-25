@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Animated Background -->
+  <!-- Background -->
   <div class="bg-gradient"></div>
   <div class="bg-blobs">
     <div class="blob blob-1"></div>
@@ -23,15 +23,21 @@
       <span class="logo-icon">💎</span>
       <span class="logo-text">Glassy Games</span>
     </div>
+
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="Search games..." autocomplete="off">
       <span class="search-icon">🔍</span>
     </div>
+
+    <div class="header-actions">
+      <button id="themeToggle" class="icon-btn" title="Toggle theme">🌙</button>
+    </div>
   </header>
 
-  <!-- Category Filters -->
+  <!-- Categories -->
   <nav class="category-nav glass-panel">
     <button class="cat-btn active" data-category="all">All</button>
+    <button class="cat-btn" data-category="favorites">❤️ Favorites</button>
     <button class="cat-btn" data-category="puzzle">Puzzle</button>
     <button class="cat-btn" data-category="action">Action</button>
     <button class="cat-btn" data-category="sports">Sports</button>
@@ -40,9 +46,7 @@
 
   <!-- Games Grid -->
   <main class="games-container">
-    <div id="gamesGrid" class="games-grid">
-      <!-- Games will be injected here -->
-    </div>
+    <div id="gamesGrid" class="games-grid"></div>
     <div id="noResults" class="no-results glass-card" style="display: none;">
       <p>No games found 😢</p>
     </div>
@@ -53,10 +57,13 @@
     <div class="modal-content glass-panel">
       <div class="modal-header">
         <h2 id="modalTitle">Game</h2>
-        <button id="closeModal" class="close-btn">✕</button>
+        <div class="modal-actions">
+          <button id="fullscreenBtn" class="icon-btn" title="Fullscreen">⛶</button>
+          <button id="closeModal" class="close-btn" title="Close">✕</button>
+        </div>
       </div>
       <div class="modal-body">
-        <iframe id="gameFrame" src="" allowfullscreen></iframe>
+        <iframe id="gameFrame" src="" allowfullscreen allow="fullscreen"></iframe>
       </div>
     </div>
   </div>
