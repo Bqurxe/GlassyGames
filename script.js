@@ -2,6 +2,7 @@ let allGames = [];
 let currentCategory = "all";
 let searchQuery = "";
 let favorites = JSON.parse(localStorage.getItem("glassy-favorites")) || [];
+let currentGameId = null; // tracks which game is open in the modal
 
 const gamesGrid = document.getElementById("gamesGrid");
 const noResults = document.getElementById("noResults");
@@ -13,6 +14,7 @@ const closeModalBtn = document.getElementById("closeModal");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
 const themeToggle = document.getElementById("themeToggle");
 const modalContent = document.getElementById("modalContent");
+const modalFavBtn = document.getElementById("modalFavBtn");
 
 // ========== THEME ==========
 function applyTheme(theme) {
@@ -36,7 +38,7 @@ themeToggle.addEventListener("click", () => {
 
 // ========== FAVORITES ==========
 function toggleFavorite(id, event) {
-  event.stopPropagation();
+  if (event) event.stopPropagation();
 
   if (favorites.includes(id)) {
     favorites = favorites.filter(favId => favId !== id);
@@ -46,11 +48,33 @@ function toggleFavorite(id, event) {
 
   localStorage.setItem("glassy-favorites", JSON.stringify(favorites));
   renderGames();
+  updateModalFavButton(); // update the button inside the modal too
 }
 
 function isFavorite(id) {
   return favorites.includes(id);
 }
+
+function updateModalFavButton() {
+  if (!currentGameId) return;
+
+  if (isFavorite(currentGameId)) {
+    modalFavBtn.textContent = "❤️";
+    modalFavBtn.classList.add("active");
+    modalFavBtn.title = "Remove from Favorites";
+  } else {
+    modalFavBtn.textContent = "🤍";
+    modalFavBtn.classList.remove("active");
+    modalFavBtn.title = "Add to Favorites";
+  }
+}
+
+// Modal favorite button click
+modalFavBtn.addEventListener("click", () => {
+  if (currentGameId) {
+    toggleFavorite(currentGameId);
+  }
+});
 
 // ========== LOAD & RENDER ==========
 async function loadGames() {
@@ -117,14 +141,15 @@ function renderGames() {
 
 // ========== GAME MODAL ==========
 function openGame(game) {
+  currentGameId = game.id;
   modalTitle.textContent = game.title;
   gameFrame.src = game.iframeUrl;
   modal.classList.add("active");
   document.body.style.overflow = "hidden";
+  updateModalFavButton(); // show correct heart when opening
 }
 
 function closeGame() {
-  // Exit fullscreen first if active
   if (document.fullscreenElement) {
     document.exitFullscreen().catch(() => {});
   }
@@ -132,6 +157,7 @@ function closeGame() {
   modal.classList.remove("active");
   gameFrame.src = "";
   document.body.style.overflow = "";
+  currentGameId = null;
 }
 
 closeModalBtn.addEventListener("click", closeGame);
@@ -144,38 +170,33 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeGame();
 });
 
-// ========== FULLSCREEN (FIXED) ==========
+// ========== FULLSCREEN ==========
 fullscreenBtn.addEventListener("click", async () => {
   try {
-    // If already in fullscreen → exit
     if (document.fullscreenElement) {
       await document.exitFullscreen();
       return;
     }
 
-    // Prefer fullscreen the actual game iframe
     if (gameFrame.requestFullscreen) {
       await gameFrame.requestFullscreen();
-    } else if (gameFrame.webkitRequestFullscreen) { // Safari
+    } else if (gameFrame.webkitRequestFullscreen) {
       await gameFrame.webkitRequestFullscreen();
-    } else if (gameFrame.msRequestFullscreen) { // old Edge
+    } else if (gameFrame.msRequestFullscreen) {
       await gameFrame.msRequestFullscreen();
     } else {
-      // Fallback: fullscreen the whole modal
       await modalContent.requestFullscreen();
     }
   } catch (err) {
     console.warn("Fullscreen failed on iframe, trying modal instead...", err);
-    // Fallback if the game blocks fullscreen (very common with cross-origin games)
     try {
       await modalContent.requestFullscreen();
     } catch (err2) {
-      alert("Fullscreen is blocked by this game. Try clicking the game first, then the button again.");
+      alert("Fullscreen is blocked by this game.");
     }
   }
 });
 
-// Update button when fullscreen state changes
 document.addEventListener("fullscreenchange", () => {
   if (document.fullscreenElement) {
     fullscreenBtn.title = "Exit Fullscreen";
