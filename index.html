@@ -54,16 +54,16 @@
 
   <!-- Game Modal -->
   <div id="gameModal" class="modal">
-    <div class="modal-content glass-panel">
+    <div class="modal-content glass-panel" id="modalContent">
       <div class="modal-header">
         <h2 id="modalTitle">Game</h2>
         <div class="modal-actions">
-          <button id="fullscreenBtn" class="icon-btn" title="Fullscreen">⛶</button>
+          <button id="fullscreenBtn" class="icon-btn" title="Fullscreen Game">⛶</button>
           <button id="closeModal" class="close-btn" title="Close">✕</button>
         </div>
       </div>
       <div class="modal-body">
-        <iframe id="gameFrame" src="" allowfullscreen allow="fullscreen"></iframe>
+        <iframe id="gameFrame" src="" allowfullscreen allow="fullscreen; autoplay; gamepad; keyboard-map"></iframe>
       </div>
     </div>
   </div>
