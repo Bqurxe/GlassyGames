@@ -430,7 +430,7 @@ body.light .favorite-btn {
   display: block;
 }
 
-/* ===== FULLSCREEN FIXES ===== */
+/* Fullscreen */
 .modal-content:fullscreen,
 .modal-content:-webkit-full-screen,
 .modal-content:-moz-full-screen {
@@ -446,6 +446,13 @@ body.light .favorite-btn {
   width: 100vw !important;
   height: 100vh !important;
   background: #000;
+}
+
+/* Modal Favorite Button active state */
+#modalFavBtn.active {
+  color: var(--favorite);
+  background: rgba(244, 114, 182, 0.2);
+  border-color: rgba(244, 114, 182, 0.4);
 }
 
 /* Responsive */
