@@ -119,6 +119,14 @@
       "description": "Navigate a maze, collect coins and avoid enemies",
       "emoji": "🎭",
       "iframeUrl": "https://unblokedgames.github.io/projects/totm/index.html"
+    },
+    {
+      "id": 16,
+      "title": "Madalin Stunt Cars 2",
+      "category": "sports",
+      "description": "Perform crazy stunts with high-performance cars",
+      "emoji": "🚗",
+      "iframeUrl": "https://unblokedgames.github.io/projects/madalin-stunt-cars-2/index.html"
     }
   ]
 }
