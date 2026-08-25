@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassy Games</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-gradient"></div>
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
+  <!-- Header -->
+  <header class="glass-header">
+    <div class="logo">
+      <span class="logo-icon">💎</span>
+      <span class="logo-text">Glassy Games</span>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search games..." autocomplete="off">
+      <span class="search-icon">🔍</span>
+    </div>
+  </header>
+
+  <!-- Category Filters -->
+  <nav class="category-nav glass-panel">
+    <button class="cat-btn active" data-category="all">All</button>
+    <button class="cat-btn" data-category="puzzle">Puzzle</button>
+    <button class="cat-btn" data-category="action">Action</button>
+    <button class="cat-btn" data-category="sports">Sports</button>
+    <button class="cat-btn" data-category="strategy">Strategy</button>
+  </nav>
+
+  <!-- Games Grid -->
+  <main class="games-container">
+    <div id="gamesGrid" class="games-grid">
+      <!-- Games will be injected here -->
+    </div>
+    <div id="noResults" class="no-results glass-card" style="display: none;">
+      <p>No games found 😢</p>
+    </div>
+  </main>
+
+  <!-- Game Modal -->
+  <div id="gameModal" class="modal">
+    <div class="modal-content glass-panel">
+      <div class="modal-header">
+        <h2 id="modalTitle">Game</h2>
+        <button id="closeModal" class="close-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="gameFrame" src="" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
