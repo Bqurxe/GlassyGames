@@ -83,9 +83,9 @@
     {
       "id": 11,
       "title": "Jumping Shell",
-      "category": "sports",
-      "description": "Use the shell to jump",
-      "emoji": "🦘",
+      "category": "puzzle",
+      "description": "Use double jumps to shed your shell and solve platforming puzzles",
+      "emoji": "🐚",
       "iframeUrl": "https://jumpingshellgame.github.io/"
     },
     {
@@ -127,6 +127,14 @@
       "description": "Perform crazy stunts with high-performance cars",
       "emoji": "🚗",
       "iframeUrl": "https://unblokedgames.github.io/projects/madalin-stunt-cars-2/index.html"
+    },
+    {
+      "id": 17,
+      "title": "Flappy Bird",
+      "category": "action",
+      "description": "Tap to keep the bird flying and avoid the pipes",
+      "emoji": "🐦",
+      "iframeUrl": "https://unblokedgames.github.io/projects/flappy-bird/index.html"
     }
   ]
 }
