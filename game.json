@@ -135,6 +135,22 @@
       "description": "Tap to keep the bird flying and avoid the pipes",
       "emoji": "🐦",
       "iframeUrl": "https://unblokedgames.github.io/projects/flappy-bird/index.html"
+    },
+    {
+      "id": 18,
+      "title": "Basket Random",
+      "category": "sports",
+      "description": "Chaotic 2-player basketball with ragdoll physics",
+      "emoji": "🏀",
+      "iframeUrl": "https://unblokedgames.github.io/projects/basket-random/frame.html"
+    },
+    {
+      "id": 19,
+      "title": "Soccer Random",
+      "category": "sports",
+      "description": "Chaotic 2-player soccer with ragdoll physics",
+      "emoji": "⚽",
+      "iframeUrl": "https://unblokedgames.github.io/projects/soccer-random/frame.html"
     }
   ]
 }
