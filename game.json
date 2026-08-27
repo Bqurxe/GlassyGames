@@ -151,6 +151,14 @@
       "description": "Chaotic 2-player soccer with ragdoll physics",
       "emoji": "⚽",
       "iframeUrl": "https://unblokedgames.github.io/projects/soccer-random/frame.html"
+    },
+    {
+      "id": 20,
+      "title": "Death Run 3D",
+      "category": "action",
+      "description": "Race through deadly 3D obstacle courses",
+      "emoji": "🏃",
+      "iframeUrl": "https://unblokedgames.github.io/projects/death-run-3d/index.html"
     }
   ]
 }
