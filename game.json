@@ -159,6 +159,14 @@
       "description": "Race through deadly 3D obstacle courses",
       "emoji": "🏃",
       "iframeUrl": "https://unblokedgames.github.io/projects/death-run-3d/index.html"
+    },
+    {
+      "id": 21,
+      "title": "Drift Hunters",
+      "category": "sports",
+      "description": "Tune cars and drift for points in open tracks",
+      "emoji": "🏁",
+      "iframeUrl": "https://unblokedgames.github.io/projects/drift-hunters/index.html"
     }
   ]
 }
